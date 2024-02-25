@@ -1,0 +1,91 @@
+#include<stdio.h>
+main()
+{
+	int a[1000],i,k=2,x=1,c=0;
+	printf("Give all numbers of the array\n");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&a[i]);
+		if(a[i]<0)
+		{
+			printf("Give only non-negative numbers please\n");
+			i--;
+		}
+	}
+	for(i=0;i<10;i++)
+	{
+		if(a[i]%2==0 && a[i]!=2 && a[i]!=0)
+		{
+			while(k<(a[i]+c+1))
+			{
+				if((a[i]+c+1)%k==0)
+				{
+					x=0;
+					break;
+				}
+				else
+				{
+					x=1;
+					k++;
+				}
+			}
+			if(x==1)
+			{
+				a[i]=a[i]+c+1;
+				c=0;
+				k=2;
+			}
+			else
+			{
+				c++;
+				k=2;
+				i--;
+			}
+		}
+		else if(a[i]==2)
+		{
+			a[i]=3;
+		}
+		else if(a[i]==1)
+		{
+			a[i]=2;
+		}
+		else if(a[i]==0)
+		{
+			a[i]=2;
+		}
+		else
+		{
+			while(k<(a[i]-c-1))
+			{
+				if((a[i]-c-1)%k==0)
+				{
+					x=0;
+					break;
+				}
+				else
+				{
+					x=1;
+					k++;
+				}
+			}
+			if(x==1)
+			{
+				a[i]=a[i]-c-1;
+				c=0;
+				k=2;
+			}
+			else
+			{
+				c++;
+				k=2;
+				i--;
+			}
+		}
+	}
+	printf("After performing the required operations, array is:\n");
+	for(i=0;i<10;i++)
+	{
+		printf("%d\n",a[i]);
+	}
+}
